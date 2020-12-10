@@ -27,7 +27,7 @@ NB: Puscha is a major refactoring of [PushFTP](https://github.com/GregOriol/Push
 
 ## Minimum requirements
 
-* PHP 7.0+
+* PHP 7.1+
 * SVN 1.9 (maybe less)
 * Git 2.9 (maybe less)
 
