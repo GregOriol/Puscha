@@ -137,10 +137,15 @@ class RunHandler
         $runners = array();
 
         foreach ($this->profiles as $profile) {
-            // Preparing password
+            // Preparing auth
             if ($this->key !== null) {
                 $password = PasswordHelper::decrypt($profile->getTarget()->getPassword(), $this->key);
                 $profile->getTarget()->setPassword($password);
+            }
+
+            // Setting the real path of the key file if defined
+            if ($profile->getTarget()->getKey() !== null) {
+                $profile->getTarget()->setKey(realpath($profile->getTarget()->getKey()));
             }
 
             // Creating the runner
